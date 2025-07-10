@@ -3,9 +3,12 @@ import PrevButton from "../components/PrevButton";
 import InfoInput from "../components/InfoInput";
 import AddButton from "../components/AddButton";
 import Button from "../components/Button";
+import Title from "../components/Title";
+import { useNavigate } from "react-router-dom";
 
 const Info = () => {
   // logic
+  const history = useNavigate();
 
   // TODO: set함수 추가하기
   const [ingredientList] = useState([]); // 사용자가 입력할 재료 목록
@@ -16,6 +19,7 @@ const Info = () => {
 
   const handleNext = () => {
     console.log("chat페이지로 이동");
+    history("/Chat");
   };
 
   // view
@@ -27,11 +31,7 @@ const Info = () => {
       {/* END:뒤로가기 버튼 */}
       <div className="h-full flex flex-col">
         {/* TODO:Title 컴포넌트 */}
-        <div className="px-2 pt-6">
-          <h1 className="text-4.5xl font-black text-white">
-            당신의 냉장고를 알려주세요
-          </h1>
-        </div>
+        <Title mainTitle={"당신의 냉장고를 알려주세요"} />
         {/* // TODO:Title 컴포넌트 */}
 
         {/* START:form 영역 */}
