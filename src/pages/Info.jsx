@@ -6,7 +6,7 @@ import Button from "../components/Button";
 import Title from "../components/Title";
 import { useNavigate } from "react-router-dom";
 
-const Info = () => {
+const Info = ({ sendIngredientList }) => {
   // logic
   const history = useNavigate();
 
@@ -30,6 +30,7 @@ const Info = () => {
   const handleNext = () => {
     console.log("chat페이지로 이동");
     history("/Chat");
+    sendIngredientList(ingredientList);
   };
 
   const handleRemove = (selectedId) => {
@@ -40,9 +41,6 @@ const Info = () => {
   };
 
   const handleChange = (userValue, selectedId) => {
-    console.log("🚀 ~ selectedId:", selectedId);
-    console.log("🚀 ~ userValue:", userValue);
-
     //prev 배열
     setIngredientList((prev) =>
       prev.map((ingredient) =>
